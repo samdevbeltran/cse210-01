@@ -40,10 +40,11 @@ class GameMethods:
 
     def changePositionByValue(self,player,value):
         self.positionList[int(value)-1] = player
+
     def endGameWinner(self):
         quit()
 
-    def checkIfWinner(self,player):
+    def checkIfWinner(self):
         pos = self.positionList
         if(pos[0] == pos[1] == pos[2] or 
            pos[3] == pos[4] == pos[5] or 
@@ -54,4 +55,6 @@ class GameMethods:
            pos[2] == pos[5] == pos[8] or 
            pos[2] == pos[4] == pos[6]):
             return True
+        elif all(isinstance(p, str) for p in pos ):
+            return False
     
